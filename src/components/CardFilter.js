@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Card, Form } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
 import ServiceAPI from "./../service/api";
 
 export const CardFilter = ({ payload, setPayload }) => {
@@ -59,12 +58,7 @@ export const CardFilter = ({ payload, setPayload }) => {
   return (
     <div>
       <Card>
-        <Card.Header>
-          <span className="d-inline-block align-top">
-            <FaSearch />
-          </span>
-          Search Cat
-        </Card.Header>
+        <Card.Header>Search Cats</Card.Header>
         <Card.Body>
           <Form>
             <Form.Group controlId="exampleForm.ControlSelect1">

@@ -3,9 +3,9 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import { CardGallery } from "./CardGallery";
 import logo from "./../logo.svg";
 
-export const CardGalleries = ({ images, isLoading, setIsLoading }) => {
+export const CardGalleries = ({ images, isLoading, voteHandler }) => {
   return (
-    <div>
+    <div className="mb-5">
       <Row>
         {isLoading ? (
           <Col>
@@ -16,7 +16,7 @@ export const CardGalleries = ({ images, isLoading, setIsLoading }) => {
         ) : !images.length ? (
           <Col>
             <div className="d-flex justify-content-center mb-5">
-              <span className="text-white text-bold">
+              <span className="text-muted text-bold">
                 No data for query results.
               </span>
             </div>
@@ -32,9 +32,12 @@ export const CardGalleries = ({ images, isLoading, setIsLoading }) => {
           </Col>
         ) : (
           images.map((image, index) => (
-            <Col key={index} sm={3} className="p-2">
+            <Col
+              key={index}
+              className="m-2 d-flex justify-content-center"
+            >
               <div>
-                <CardGallery image={image} />
+                <CardGallery image={image} voteHandler={voteHandler} />
               </div>
             </Col>
           ))
