@@ -3,7 +3,7 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import { CardGallery } from "./CardGallery";
 import logo from "./../logo.svg";
 
-export const CardGalleries = ({ images, isLoading, voteHandler }) => {
+export const CardGalleries = ({ images, isLoading }) => {
   return (
     <div className="mb-5">
       <Row>
@@ -32,12 +32,9 @@ export const CardGalleries = ({ images, isLoading, voteHandler }) => {
           </Col>
         ) : (
           images.map((image, index) => (
-            <Col
-              key={index}
-              className="m-2 d-flex justify-content-center"
-            >
+            <Col key={index} className="m-2 d-flex justify-content-center">
               <div>
-                <CardGallery image={image} voteHandler={voteHandler} />
+                <CardGallery image={image} />
               </div>
             </Col>
           ))

@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { CardFilter } from "./CardFilter";
-import { CardGalleries } from "./CardGalleries";
-import ServiceAPI from "./../service/api";
-import { Paginate } from "./layouts/Paginate";
+import { CardFilter } from "../components/CardFilter";
+import { CardGalleries } from "../components/CardGalleries";
+import ServiceAPI from "../service/api";
+import { Paginate } from "../components/layouts/Paginate";
 
 export const Main = () => {
   const [images, setImages] = useState([]);
@@ -43,12 +43,6 @@ export const Main = () => {
     getImages(currentPage - 1);
   };
 
-  const voteHandler = async (payload) => {
-    return await ServiceAPI.post("/votes", payload).then((res) =>
-      console.log(res)
-    );
-  };
-
   return (
     <div className="mt-5">
       <Container>
@@ -57,11 +51,7 @@ export const Main = () => {
             <CardFilter payload={payload} setPayload={setPayload} />
           </Col>
           <Col sm={12}>
-            <CardGalleries
-              images={images}
-              isLoading={isLoading}
-              voteHandler={voteHandler}
-            />
+            <CardGalleries images={images} isLoading={isLoading} />
             <Paginate
               images={images}
               isLoading={isLoading}

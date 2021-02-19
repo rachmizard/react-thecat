@@ -1,14 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./components/layouts/Navbar";
-import { Main } from "./components/Main";
+import { NavigationBar } from "./components/layouts/NavigationBar";
+import { Favourites } from "./pages/Favourites";
+import { Main } from "./pages/Main";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Main />
-    </div>
+    <main>
+      <div className="App">
+        <NavigationBar />
+        <Switch>
+          <Route path="/" component={Main} exact />
+          <Route path="/favourites" component={Favourites} />
+        </Switch>
+      </div>
+    </main>
   );
 }
 

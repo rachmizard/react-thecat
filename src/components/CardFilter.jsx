@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Card, Form } from "react-bootstrap";
-import ServiceAPI from "./../service/api";
+import ServiceAPI from "../service/api";
 
 export const CardFilter = ({ payload, setPayload }) => {
   const [categories, setCategories] = React.useState([]);
